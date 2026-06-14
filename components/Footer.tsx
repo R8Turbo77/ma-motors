@@ -1,0 +1,6 @@
+import Link from 'next/link';
+import { Logo } from './Logo';
+import { site } from '@/lib/site';
+export function Footer() {
+  return <footer className="border-t border-white/10 bg-black"><div className="container-shell grid gap-10 py-12 md:grid-cols-[1.2fr_.8fr_.8fr]"><div><Logo /><p className="mt-5 max-w-md text-sm leading-7 text-white/62">Premium used cars bought and sold with transparent pricing, careful preparation and a service-led buying experience.</p></div><div><h3 className="text-sm font-black uppercase tracking-[0.22em] text-gold">Showroom</h3><p className="mt-4 text-sm leading-7 text-white/65">{site.address}</p><p className="mt-3 text-sm text-white/70">{site.phone}</p><p className="text-sm text-white/70">{site.email}</p></div><div><h3 className="text-sm font-black uppercase tracking-[0.22em] text-gold">Explore</h3><div className="mt-4 grid gap-2 text-sm text-white/66"><Link href="/stock">Current Stock</Link><Link href="/sell-your-car">Sell Your Car</Link><Link href="/finance">Finance</Link><Link href="/contact">Contact</Link></div></div></div><div className="border-t border-white/10 py-5 text-center text-xs uppercase tracking-[0.22em] text-white/42">© {new Date().getFullYear()} MA Motors. All rights reserved.</div></footer>;
+}

@@ -1,0 +1,21 @@
+export type Vehicle = {
+  slug: string;
+  make: string;
+  model: string;
+  derivative: string;
+  price: number;
+  year: number;
+  mileage: number;
+  registration: string;
+  engineSize: string;
+  fuelType: string;
+  transmission: string;
+  bodyType: string;
+  color: string;
+  doors: number;
+  seats: number;
+  images: string[];
+  highlights: string[];
+  features: string[];
+  description: string;
+};
