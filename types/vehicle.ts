@@ -18,4 +18,6 @@ export type Vehicle = {
   highlights: string[];
   features: string[];
   description: string;
+  status?: 'available' | 'reserved' | 'sold';
+  featured?: boolean;
 };
