@@ -42,11 +42,19 @@ https://www.mamotorsltd.com
 
 1. Open Safari on iPhone
 2. Go to `https://mamotorsltd.com/admin`
-3. Tap `Open Studio`
+3. Tap `All Adverts`
 4. Login to Sanity
-5. Open `Vehicles`
-6. Add or edit the car
-7. Press `Publish`
+5. Open `All Car Adverts`
+6. Tap the create button to add a new advert, or tap an existing advert to edit it
+7. Fill in the grouped tabs: Advert Basics, Photos, Vehicle Specs, Description and Publishing
+8. Press `Publish`
+
+## Editing And Deleting Adverts
+
+- To edit an advert, open `All Car Adverts`, choose the car, make changes and press `Publish`.
+- To mark a car sold, open the advert, go to `Publishing`, set `Advert status` to `Sold`, then press `Publish`.
+- To delete an advert, open the advert and use the three-dot menu in Sanity, then choose `Delete`.
+- To change the main photo, open `Photos` and drag the best image to the first position.
 
 The website refreshes from the CMS automatically. If a change does not show instantly, wait around one minute and refresh the page.
 
