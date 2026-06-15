@@ -74,3 +74,13 @@ Then push:
 & "C:\Program Files\Git\cmd\git.exe" commit -m "Add mobile stock admin"
 & "C:\Program Files\Git\cmd\git.exe" push origin main
 ```
+
+## Import Current Website Adverts Into Studio
+
+After the latest website code is deployed, run this once in PowerShell:
+
+```powershell
+npx sanity dataset import sanity/current-adverts.ndjson production --replace
+```
+
+Login with the same Sanity/GitHub account if it asks. This imports the current website adverts into Studio using the original website photos.

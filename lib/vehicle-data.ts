@@ -5,6 +5,7 @@ import { Vehicle } from '@/types/vehicle';
 type SanityVehicle = Omit<Vehicle, 'slug' | 'images'> & {
   slug?: { current?: string };
   images?: string[];
+  imageUrls?: string[];
 };
 
 const vehicleQuery = `*[_type == "vehicle"] | order(featured desc, _createdAt desc) {
@@ -28,12 +29,14 @@ const vehicleQuery = `*[_type == "vehicle"] | order(featured desc, _createdAt de
   status,
   featured,
   slug,
-  "images": images[].asset->url
+  "images": images[].asset->url,
+  imageUrls
 }`;
 
 function normaliseVehicle(vehicle: SanityVehicle): Vehicle | null {
   const slug = vehicle.slug?.current;
-  if (!slug || !vehicle.make || !vehicle.model || !vehicle.images?.length) return null;
+  const images = [...(vehicle.images || []), ...(vehicle.imageUrls || [])].filter(Boolean);
+  if (!slug || !vehicle.make || !vehicle.model || !images.length) return null;
   return {
     slug,
     make: vehicle.make,
@@ -50,7 +53,8 @@ function normaliseVehicle(vehicle: SanityVehicle): Vehicle | null {
     color: vehicle.color || '',
     doors: vehicle.doors || 5,
     seats: vehicle.seats || 5,
-    images: vehicle.images,
+    images,
+    imageUrls: vehicle.imageUrls || [],
     highlights: vehicle.highlights || [],
     features: vehicle.features || [],
     description: vehicle.description || '',

@@ -15,6 +15,7 @@ export type Vehicle = {
   doors: number;
   seats: number;
   images: string[];
+  imageUrls?: string[];
   highlights: string[];
   features: string[];
   description: string;
