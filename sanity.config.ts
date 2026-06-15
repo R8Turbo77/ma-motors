@@ -12,6 +12,42 @@ export default defineConfig({
   projectId,
   dataset,
   basePath: '/studio',
-  plugins: [structureTool()],
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('MA Motors')
+          .items([
+            S.documentTypeListItem('vehicle').title('All Car Adverts'),
+            S.divider(),
+            S.listItem()
+              .title('Available Adverts')
+              .child(
+                S.documentList()
+                  .title('Available Adverts')
+                  .schemaType('vehicle')
+                  .filter('_type == "vehicle" && (!defined(status) || status == "available")')
+              ),
+            S.listItem()
+              .title('Reserved Adverts')
+              .child(
+                S.documentList()
+                  .title('Reserved Adverts')
+                  .schemaType('vehicle')
+                  .filter('_type == "vehicle" && status == "reserved"')
+              ),
+            S.listItem()
+              .title('Sold Adverts')
+              .child(
+                S.documentList()
+                  .title('Sold Adverts')
+                  .schemaType('vehicle')
+                  .filter('_type == "vehicle" && status == "sold"')
+              ),
+            S.divider(),
+            S.documentTypeListItem('siteSettings').title('Website Settings')
+          ])
+    })
+  ],
   schema: { types: schemaTypes }
 });
